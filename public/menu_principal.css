@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#menu_principal{
+    width: 100%;
+    background-color: rgb(50, 50, 158);
+    height: 50px;
+}
+#opciones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+#opciones *{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 0 10px;
+}
+
+li a{
+    text-decoration: none;
+}
+
+.opcines_seleccionables{
+    color: white;
+    transition: 0.2s all;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.opcines_seleccionables:hover{
+    border: 1px solid rgba(255, 255, 255, 0.751);
+    background-color: rgba(255, 255, 255, 0.421);
+}
+.opcines_seleccionables:active{
+    transform: scale(1.5);
+    color: rgb(50, 50, 158);
+    background-color: rgba(236, 236, 236, 0.657);
+    transform: scale(1.09);
+}
+
+
+#logo{
+    height: 25px;
+}  
+
+#buscar{
+    /* border: 1px solid rgb(59, 59, 59); */
+    width: 520px;
+    height: 36px;
+    border-radius: 60px;
+    
+}
+#buscar *{
+    margin: 0;
+    border: 0;
+    color: black;
+    padding: 0px 20px;
+}
+#buscar input{
+    /* padding: 0px 20px; */
+    height: 100%;
+    width: 530px;
+}
+#buscar button{
+    color: rgb(50, 50, 50);
+    height: 100%;
+    cursor: pointer;
+}
