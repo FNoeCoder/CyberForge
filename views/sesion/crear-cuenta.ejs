@@ -1,20 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CREAR CUENTA</title>
+    <link rel="stylesheet" href="/styleSesion.css">
 </head>
+
 <body>
-    <form action="/crear-cuenta" method="post">
-        <input type="text" placeholder="Nombre" name="cnombre">
-        <input type="text" placeholder="1er apellido" name="c1apelllido">
-        <input type="text" placeholder="2do apellido" name="c2apellido">
-        <input type="email" placeholder="Correo" name="cemail">
-        <input type="password" placeholder="Contraseña" name="ccontra">
-        <input type="text" placeholder="URL imagen" name="curlimagen">
-        <button type="submit">CREAR CUENTA</button>
-    </form>
+    <div class="form" action="/crear-cuenta" method="post">
+        <div class="form-panel one">
+            <div class="form-header">
+                <h1>Registrar cuenta</h1>
+            </div>
+            <div class="form-content">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Apellidos</label>
+                        <input type="text" id="lastname" name="lastname" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Usuario</label>
+                        <input type="text" id="username" name="username" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electronico</label>
+                        <input type="email" id="email" name="email" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
