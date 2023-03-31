@@ -1,46 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INICIAR SESIÓN</title>
-    <link rel="stylesheet" href="/styleSesion.css">
+    <title>CREAR CUENTA</title>
+    <link rel="stylesheet" href="/sesion.css">
 </head>
-
 <body>
-    <div class="form" action="/iniciar-sesion" method="post">
-        <div class="form-toggle"></div>
-        <div class="form-panel one">
-            <div class="form-header">
-                <h1>Iniciar sesión</h1>
-            </div>
-            <div class="form-content">
-                <form>
-                    <div class="form-group">
-                        <label for="username">Usuario</label>
-                        <input type="text" id="username" name="username" required="required" />
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input type="password" id="password" name="password" required="required" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-remember">
-                            <input type="checkbox" />Recordarme
-                        </label><a class="form-recovery" href="#">Olvidaste contraseña?</a>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit">Iniciar sesión</button>
-                    </div>
-                </form>
-            </div>
+    <form action="/iniciar-sesion" method="post">
+        <div class="form-header">
+            <h1>INICIAR SESIÓN</h1>
+        <div class="form-group">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" required/>
         </div>
-    </div>
-    <% if (aviso) {%>
-        <p>Correo o contraseña incorrectos</p>
-        <%} %>
-</body>
+        <div class="form-group">
+            <label for="contra">Contraseña</label>
+            <input type="text" name="contra"/>
+        </div>
 
+        <p id="advertencia">
+            <% if (aviso){%>
+                <%= "Correo o contraseña incorrectos" %>
+            <%} %>
+        </p>
+
+        
+        <button type="submit">INICIAR SESIÓN</button>
+        <p id="anuncio">No tienes cuenta. <a href="/crear-cuenta"> Crea una</a>.</p>
+    </form>
+</body>
 </html>

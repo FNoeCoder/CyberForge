@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, rgba(66, 183, 245, 0.8) 0%, rgba(66, 245, 189, 0.4) 100%);
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    background: #FFFFFF;
+    width: 400px;
+    border-radius: 6px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.form-header {
+    margin: 0 0 18px;
+    width: 100%;
+}
+
+.form-header h1 {
+    padding: 4px 0;
+    color: #4285F4;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.form-group label{
+    color: #5c5c5c;
+    font-family: inherit;
+}
+.form-group input{
+    border: 0;
+    border-radius: 3px;
+    background-color: #E5E5E5;
+    height: 30px;
+    padding: 6px 11px;
+}
+#advertencia{
+    width: 100%;
+    height: 20px;
+    font-family: inherit;
+
+    color: rgb(212, 98, 98);
+    margin-bottom:3px ;
+    font-size: 13px;
+    text-align: center;
+}
+#none{
+    display: none;
+}
+button{
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    background-color: #4285F4;;
+    border: 1px solid #4285F4;
+    color: white;
+    border-radius: 3px;
+    height: 45px;
+    font-size: 20px;
+    padding: 0 4px;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+button:hover{
+    background-color: #ffffff;
+    color:#4285F4;
+    border: 1px solid #4285F4;
+
+}
+
+#anuncio{
+    font-family: inherit;
+    font-size: 12px;
+    margin-top: 8px;
+    width: 100%;
+    text-align: end;
+}
+
+.form-contra {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.form-contra *{
+    
+}
+.form-contra label{
+    width: 100%;
+    margin-bottom: 5PX;
+}
+.form-contra input{
+    width: 43%;
+    margin-bottom: 5PX;
+}

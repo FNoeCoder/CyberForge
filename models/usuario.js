@@ -2,13 +2,13 @@
 const mysql = require("mysql2")
 const db = require('./config-bd');
 
-function guardarUsuario(nombre_completo, email, contra, url_imagen) {
-    return db.execute(`insert into Usuarios values(null, '${nombre_completo}', '${email}', '${contra}', '${url_imagen}');`)
+function guardarUsuario(usuario, nombre, correo, contra, urlimg) {
+    return db.execute(`insert into Usuarios values(null, '${usuario}', '${nombre}', '${correo}', '${contra}', '${urlimg}', 'normal');`)
 }
 
-function buscar_usuario(correo, contra) {
+function buscar_usuario(usuario, contra) {
     
-    return db.execute(`select * from Usuarios where email = '${correo}' and contra = '${contra}';  `)
+    return db.execute(`select * from Usuarios where usuario = '${usuario}' and contra = '${contra}';  `)
     .then(resultado =>{
         if (resultado[0].length === 1){
             return {

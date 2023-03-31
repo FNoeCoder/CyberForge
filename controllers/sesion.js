@@ -8,13 +8,14 @@ exports.getIniciarSesion = (req, res) =>{
 }
 exports.postIniciarSesion =(req, res) =>{
     // console.log(req.body);
-    let correo = req.body.iemail
-    let contra = req.body.icontra
-    modelUsuario.buscar_usuario(correo, contra)
+    let usuario = req.body.usuario
+    let contra = req.body.contra
+    modelUsuario.buscar_usuario(usuario, contra)
     .then(usuario_valido =>{
         if (usuario_valido.valido){
             req.session.idUser = usuario_valido.idUser
             req.session.nombre = usuario_valido.nombre
+            req.session.usuario = usuario_valido.usuario
             res.redirect("/")
             console.log(req.session);
         }else{
@@ -29,17 +30,20 @@ exports.getCrearCuenta =(req, res) =>{
     res.render("./sesion/crear-cuenta")
 }
 exports.postCrearCuenta =(req, res) =>{
-    var nombre_completo = req.body.cnombre.trim() + " " + req.body.c1apelllido.trim() + " " + req.body.c2apellido.trim(); 
-    var email = req.body.cemail
-    var contra = req.body.ccontra
-    var urlimagen = req.body.curlimagen
+    let nombre_completo = req.body.nombre.trim() + " " + req.body.apellidos.trim()
+    let correo = req.body.correo
+    let usuario = req.body.usuario
+    let contra = req.body.contra
+    let contra2 = req.body.confirmarcontra
+    let urlimagen = req.body.urlimagen
     
-    modelUsuario.guardarUsuario(nombre_completo, email, contra, urlimagen)
+    modelUsuario.guardarUsuario(usuario, nombre_completo, correo, contra, urlimagen)
     .then(resultado =>{
         res.redirect(`/`)
     })
     .catch(err =>{
-        res.redirect(`/`)
+        console.log(err);
+        res.redirect(`/erere`)
     })
     
 
