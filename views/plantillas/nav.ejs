@@ -1,18 +1,40 @@
 <nav id="menu_principal">
     <ul id="opciones">
-        <li> <a href="/">
-            CyberForge <img src="/logo.png" alt="" id="logo">
-        </a> </li>
+        <li>
+            <i class="fa-solid fa-bars" id="menu"></i>
+            <a href="/">CyberForge <img src="/logo.png" alt="" id="logo"></a> 
+        </li>
         <li><form action="/buscar" id="buscar" method="post">
             <input type="text" placeholder="Buscar" name="busqueda">
             <button type="submit">Buscar</button>
         </form></li>
-        <div>
+        <!-- <div>
             <LI class="opcines_seleccionables"><a href="/mis_compras">MIS COMPRAS</a></LI>
             <li class="opcines_seleccionables"><a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
             <li class="opcines_seleccionables"><a href="/perfil"><i class="fa-solid fa-user-large-slash"></i></a></li>
-            <!-- <li class="opcines_seleccionables"><a href="/cerrar_sesion"><i class="fa-solid fa-right-to-bracket fa-shake"></i></a></li> -->
+            <li class="opcines_seleccionables"><a href="/cerrar_sesion"><i class="fa-solid fa-right-to-bracket fa-shake"></i></a></li>
+        </div> -->
+
+        <div>
+        <% if(datos.usuario){ %>
+            <a href=""><%= datos.usuario %> </a>
+            <% if(datos.url_imagen !== ""){ %>
+                <a href="/perfil" id="contenedor_img_usuario">
+                    <img id="img_usuario" src="<%= datos.url_imagen %>" alt="">                
+                </a>                        
+            <% }else{ %>
+                <a href="/perfil" id="contenedor_img_usuario">
+                    <img id="img_usuario" src="/img/perfil/perfil-de-usuario.webp" alt="">                
+                </a>                        
+            <% } %>
+                  
+        <% }else{ %>
+            <a href="/iniciar-sesion" id="iniciar">
+                INICIAR SESIÓN          
+            </a>     
+        <% } %>
         </div>
+
 
     </ul>
 </nav>

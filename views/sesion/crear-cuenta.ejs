@@ -14,37 +14,40 @@
         </div>
         <div class="form-group">
             <label for="nombre">Nombre/s</label>
-            <input type="text" name="nombre" required/>
+            <input type="text" name="nombre" id="nombre" required/>
         </div>
         <div class="form-group">
             <label for="apellidos">Apellidos</label>
-            <input type="text" name="apellidos" required/>
+            <input type="text" name="apellidos" id="apellidos" required/>
         </div>
         <div class="form-group">
             <label for="usuario">Usuario</label>
-            <input type="text" name="usuario" placeholder="@" required/>
+            <input type="text" name="usuario" required id="usuario"/>
         </div>
         <div class="form-group">
             <label for="correo">Correo</label>
-            <input type="text" name="correo" required/>
+            <input type="email" name="correo" id="correo" required placeholder="@gmail.com"/>
         </div>
         <div class="form-group form-contra">
             <label for="contra">Contraseña</label>
-            <input type="text" name="contra" required placeholder="Contraseña"/>
-            <input type="text" name="confirmarcontra" required placeholder="Confirmar Contraseña"/>
+            <input type="password" name="contra" required placeholder="Contraseña" id="contra1"/>
+            <input type="password" name="confirmarcontra" required placeholder="Confirmar Contraseña" id="contra2" />
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="urlimagen">URL Imagen</label>
             <input type="text" name="urlimagen"/>
-        </div>
+        </div> -->
 
         <p id="advertencia">
+            <% if (aviso){%>
+                <%= "Usuario o correo en uso" %>
+            <%} %>
         </p>
-
         
-        <button type="submit">CREAR CUENTA</button>
-        <p id="anuncio">Ya tienes una cuenta. <a href="/iniciar-sesion"> Inicia sesió</a>.</p>
+        <button type="submit" id="botonSubmit">CREAR CUENTA</button>
+        <p id="anuncio">Ya tienes una cuenta. <a href="/iniciar-sesion"> Inicia sesión</a>.</p>
     </form>
 </body>
+<script src="/verificar.js"></script>
 </html>

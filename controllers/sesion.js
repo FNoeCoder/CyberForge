@@ -16,8 +16,9 @@ exports.postIniciarSesion =(req, res) =>{
             req.session.idUser = usuario_valido.idUser
             req.session.nombre = usuario_valido.nombre
             req.session.usuario = usuario_valido.usuario
+            req.session.url_imagen = usuario_valido.url_imagen
+            req.session.tipo_usuario = usuario_valido.tipo_usuario
             res.redirect("/")
-            console.log(req.session);
         }else{
             res.render("./sesion/iniciar-sesion", {aviso: true})
         }
@@ -27,23 +28,22 @@ exports.postIniciarSesion =(req, res) =>{
 }
 
 exports.getCrearCuenta =(req, res) =>{
-    res.render("./sesion/crear-cuenta")
+    res.render("./sesion/crear-cuenta",{aviso: false})
 }
 exports.postCrearCuenta =(req, res) =>{
-    let nombre_completo = req.body.nombre.trim() + " " + req.body.apellidos.trim()
-    let correo = req.body.correo
+    let nombre_completo = req.body.nombre.trim().toUpperCase() + " " + req.body.apellidos.trim().toUpperCase()
+    let correo = req.body.correo.toLowerCase()
     let usuario = req.body.usuario
     let contra = req.body.contra
     let contra2 = req.body.confirmarcontra
-    let urlimagen = req.body.urlimagen
+    // let urlimagen = req.body.urlimagen
     
     modelUsuario.guardarUsuario(usuario, nombre_completo, correo, contra, urlimagen)
     .then(resultado =>{
-        res.redirect(`/`)
+        res.render("./sesion/iniciar-sesion", {aviso: false})
     })
     .catch(err =>{
-        console.log(err);
-        res.redirect(`/erere`)
+        res.render("./sesion/crear-cuenta", {aviso: true})
     })
     
 
