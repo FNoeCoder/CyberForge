@@ -1,0 +1,57 @@
+main #carrito{
+    width:80% ;
+    min-width: 400px;
+    max-width: 800px;
+    height: max-content;
+    min-height: 200px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#carrito table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 10px;
+
+}
+#nproduc{
+    /* width: 50%; */
+}
+td, th {
+    border: 1px solid rgb(182, 182, 182);
+  }
+thead tr{
+    background-color: rgb(218, 218, 218);
+}
+td{
+    text-align: center;
+}
+.tdimgCarContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgCarContainer{
+    width: 100px;
+    height: 100px;
+    margin: 10px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+button{
+    cursor: pointer;
+}
+#comprar-carrito{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+#boton-comprar-carrito{
+    width: 100%;
+}

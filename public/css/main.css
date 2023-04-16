@@ -1,0 +1,83 @@
+
+
+
+.product-container{
+    width: 100%;
+    max-width: 250px;
+    height: 345px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 5px;
+    margin: 20px 50px;
+    /* overflow: hidden; */
+    transition: 0.2s;
+}
+.product-container:hover{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+.precio{
+    font-size: 21px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+.nombre_produc{
+    font-size: 20px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.usuario_producto{
+    font-size: 10px;
+    color: rgb(33, 35, 98);
+}
+.contenedor_img{
+    width: 100%;
+    max-width: 250px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.botones{
+    width: 100%;
+}
+.botones *{
+    width: 100%;
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.botones form button *{
+    width: 20px;
+    margin: 0 5px;
+    /* display: flex; */
+}
+.ver{
+    margin: 10px 0;
+}
+.ver button{
+    background-color: #143B53;
+    background:  #153C71;
+    padding: 7px 0;
+}
+.ver button:hover{
+    background-color: #184663;
+    background:  #184482;
+
+}
+
+.add_carrito button{
+    background-color: #236F64;
+    padding: 7px 0;
+}
+.add_carrito button:hover{
+    background-color: #287f72;
+}

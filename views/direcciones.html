@@ -1,0 +1,113 @@
+<!--  -->
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/body.css">
+    <link rel="stylesheet" href="/css/barra_arriba.css">
+    <link rel="stylesheet" href="/css/mainDirecciones.css">
+  <title>Titulo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+  <!-- hasta aquí va head.ejs -->
+
+<body>
+    <!--  -->
+    <nav id="menu">
+        <i class="fa-solid fa-bars" id="menu_ico"></i>
+        <ul>
+            <div id="contenedor_img_usuario">
+                <img id="img_usuario" src="img/ram.webp" alt="">
+            </div>                
+            <li><a href="https://google.com"><i class="fa-solid fa-user"></i>PERFIL</a></li>
+            <li><a href=""><i class="fa-solid fa-cart-shopping"></i>CARRITO</a></li>
+            <li><a href=""><i class="fa-solid fa-bag-shopping"></i>COMPRAS</a></li>
+            <li><a href=""><i class="fa-brands fa-elementor"></i>MIS PRODUCTOS</a></li>
+            <li><a href=""><i class="fa-solid fa-location-dot"></i>DIRECCIONES</a></li>
+            <li><a href=""><i class="fa-solid fa-address-card"></i>TARJETAS</a></li>
+            <li><a href=""><i class="fa-solid fa-bell"></i>NOTIFICACIONES</a></li>
+            <li><a href=""><i class="fa-solid fa-hammer"></i> ADMINISTRAR SOLICITUDES </a></li>
+            <li><a href=""><i class="fa-solid fa-gear"></i>AJUSTES</a></li>
+            <li><a href=""><i class="fa-solid fa-right-from-bracket"></i>CERRAR SESIÓN</a></li>
+        </ul>
+    </nav>
+    <div id="barra_arriba">
+        <a href="/inicio.html" id="cyberforge">CyberForge <img src="img/logo.png" alt="" id="logo"></a> 
+        <form action="/buscar" id="buscar" method="post">
+            <input type="text" placeholder="Buscar" name="busqueda">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+    <!-- nav.ejs -->
+
+    <main>
+        <form action="/guardar-direccion" method="POST" id="guardar-direc">
+            <h2>AGREGAR DIRECCIONES</h2>
+            <label for="estado">Estado:</label>
+            <input class="datos_direc" type="text" id="estado" name="estado" required maxlength="30"><br>
+          
+            <label for="ciudad">Ciudad:</label>
+            <input class="datos_direc" type="text" id="ciudad" name="ciudad" required maxlength="30"><br>
+          
+            <label for="cp">Código Postal:</label>
+            <input class="datos_direc" type="text" id="cp" name="cp" required maxlength="5"><br>
+          
+            <label for="calle">Calle:</label>
+            <input class="datos_direc" type="text" id="calle" name="calle" required maxlength="45"><br>
+          
+            <label for="n_exterior">Número Exterior:</label>
+            <input class="datos_direc" type="text" id="n_exterior" name="n_exterior" required maxlength="4"><br>
+          
+            <label for="n_interior">Número Interior:</label>
+            <input class="datos_direc" type="text" id="n_interior" name="n_interior" maxlength="4"><br>
+          
+            <label for="telefono">Teléfono:</label>
+            <input class="datos_direc" type="text" id="telefono" name="telefono" required maxlength="10"><br>
+          
+            <label for="recibe">Recibe:</label>
+            <input class="datos_direc" type="text" id="recibe" name="recibe" required maxlength="100"><br>
+            <div id="contenedor_botones_direc">
+                <button id="agregar_dirc" name="add_update" value="agregar">AGREGAR DIRECCION</button>
+            </div>
+        </form>
+          
+        <div id="direcciones">
+            <h2 >DIRECCIONES</h2>
+            <section class="direccion">
+                <p class="datos_direc_guar" id="estado">Estado:Gto</p>
+                <p class="datos_direc_guar" id="ciudad">Ciudad:Cueramaro</p>
+                <p class="datos_direc_guar" id="cp">CP:35961</p>
+                <p class="datos_direc_guar" id="calle">Calle:Miguel hidalgo</p>
+                <p class="datos_direc_guar" id="n_exterior">NO ext:624</p>
+                <p class="datos_direc_guar" id="n_interior">NO int:</p>
+                <p class="datos_direc_guar" id="telefono">Telefono:475647563</p>
+                <p class="datos_direc_guar" id="quien_recibe">Recibe:Noe</p>
+                <form action="/eliminar-direc" id="add-del-direc">
+                    <input type="hidden" value="iddirec">
+                    <button id="eliminar"><i class="fa-solid fa-trash-can"></i></button>
+                    <button id="editar" type="button"><i class="fa-solid fa-pen-to-square"></i></button>
+                </form>
+            </section>
+
+        </div>
+
+    </main>
+
+
+<!--  -->
+<!--  -->
+<script src="/js/img_usuario.js"></script>
+<!-- script_generales -->
+
+<footer></footer>
+</body>
+<script src="/js/menu.js"></script>
+<script src="/js/direcciones.js"></script>
+
+</html>
+<!-- footer -->
+
+
+

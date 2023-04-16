@@ -16,6 +16,8 @@ exports.postIniciarSesion =(req, res) =>{
             req.session.idUser = usuario_valido.idUser
             req.session.nombre = usuario_valido.nombre
             req.session.usuario = usuario_valido.usuario
+            req.session.email = usuario_valido.email
+            req.session.contra = usuario_valido.contra
             req.session.url_imagen = usuario_valido.url_imagen
             req.session.tipo_usuario = usuario_valido.tipo_usuario
             res.redirect("/")
@@ -40,34 +42,15 @@ exports.postCrearCuenta =(req, res) =>{
     
     modelUsuario.guardarUsuario(usuario, nombre_completo, correo, contra, urlimagen)
     .then(resultado =>{
-        res.render("./sesion/iniciar-sesion", {aviso: false})
+        res.redirect("/iniciar-sesion")
     })
     .catch(err =>{
         res.render("./sesion/crear-cuenta", {aviso: true})
     })
-    
-
 }
-// ? Funciones para verificar datos - aun en preparación
-// function datosCorrectos(nombre_completo, email, contra, urlimagen){
 
-
-//     if (caracterEnTexto(nombre_completo, "-,;:_{}[]´+¨*¿'¡?=)(/&%$#!°|~^`1234567890")){
-        
-//     }
-
-//     }
-
-    
-
-
-// function caracterEnTexto(texto, caracteresJuntos){
-//     caracteresSeparados = caracteresJuntos.split("")
-//     for (let i = 0; i < caracteresSeparados.length; i++) {
-//         if (texto.includes(caracteresSeparados[i])) {
-//           return true;
-//         }
-//     }
-//     return false;
-// };
+exports.getCerrarSesion = (req, res) =>{
+    req.session.destroy()
+    res.redirect("/iniciar-sesion")
+}
 

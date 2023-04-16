@@ -24,24 +24,22 @@ exports.getPerfil = (req, res) =>{
     }})
 }
 
-exports.getCariito = (req, res) =>{
-    res.render("carrito",{Titulo_Pestaña: "Carrito"})
-}
+
 exports.getProducto = (req, res) =>{
-    res.send("Producto")
+
 }
 exports.getEditarProducto = (req, res) =>{
-    res.send("Editar Producto")
+
 }
 exports.getComprar = (req, res) =>{
-    res.send("Comprar")
+
 }
 
 
 
 
 exports.getMisCompras = (req, res) =>{
-    res.render("mis_compras",{Titulo_Pestaña: "Mis compras"})
+
 }
 
 function x (req, res){

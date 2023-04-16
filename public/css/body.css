@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: rgb(222, 222, 222);
+
+}
+
+
+main{
+    width: 70%;
+    /* min-height: 100vh; */
+    height: max-content;
+    background-color: rgb(222, 222, 222);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+

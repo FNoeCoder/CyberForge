@@ -15,6 +15,8 @@ function buscar_usuario(usuario, contra) {
                 idUser: resultado[0][0].idUsuarios,
                 nombre: resultado[0][0].nombre,
                 usuario: resultado[0][0].usuario,
+                email: resultado[0][0].email,
+                contra: resultado[0][0].contra,
                 url_imagen: resultado[0][0].url_imagen,
                 tipo_usuario: resultado[0][0].tipo_usuario,
                 valido: true
@@ -34,7 +36,14 @@ function buscar_usuario(usuario, contra) {
     })
 
 }
+function actualizarContra(idusuario, contra) {
+    return db.execute(`UPDATE Usuarios SET contra = '${contra}' WHERE idUsuarios = ${idusuario};`  )
+}
+function actualizarIMG(idusuario, img) {
+    return db.execute(`UPDATE Usuarios SET url_imagen = '${img}' WHERE idUsuarios = ${idusuario};`  )
+}
 
-
+exports.actualizarIMG = actualizarIMG
+exports.actualizarContra = actualizarContra
 exports.guardarUsuario = guardarUsuario
 exports.buscar_usuario = buscar_usuario

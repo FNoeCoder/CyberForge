@@ -1,11 +1,60 @@
-<%- include("./plantillas/head.ejs") %>
-</head>
+<!--  -->
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/body.css">
+    <link rel="stylesheet" href="/css/barra_arriba.css">
+    <link rel="stylesheet" href="/css/mainPerfil.css">
+  <title>Titulo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+  <!-- hasta aquí va head.ejs -->
+
 <body>
     <%- include("./plantillas/nav.ejs") %>
-    <h1>Perfil</h1>
+    <%- include("./plantillas/barra_superior.ejs") %>
+
+    <main>
+        <div id="infoUsuario">
+            <h2>PERFIL</h2>
+            <p>Usuario:<%= datos.usuario %></p>
+            <p>Nombre: <%= datos.nombre%></p>
+            <p>Correo: <%= datos.correo %></p>
+            <form action="/actualizar-contra" method="post" class="formDato">
+                <label for="contra">Contra:</label>
+                <div id="contenedor_Contra">
+                    <input class="dato" type="password" id="contra" name="contra" required maxlength="45" minlength="8" value="<%= datos.contra %>">
+                    <i id="ojo" class="fa-solid fa-eye"></i>
+                </div>
+
+                <button class="save" disabled><i class="fa-solid fa-floppy-disk"></i></button>
+            </form>
+            <form action="/actualizar-img" method="post" class="formDato">
+                <label for="url_imagen">URL IMG:</label>
+                <div id="contenedor_url_imagen">
+                    <input class="dato" type="text" id="url_imagen" name="url_imagen" maxlength="600" value="<%= datos.url_imagen %>">
+                </div>
+                <button class="save" disabled><i class="fa-solid fa-floppy-disk"></i></button>
+            </form>
+        </div>
+    </main>
 
 
+<!--  -->
+<!--  -->
+<script src="/js/img_usuario.js"></script>
+<!-- script_generales -->
 
-    <%- include("./plantillas/footer.ejs") %>
+<footer></footer>
+</body>
+<script src="/js/menu.js"></script>
+<script src="/js/perfil.js"></script>
+
+</html>
+<!-- footer -->
+
 
 

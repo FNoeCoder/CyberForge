@@ -1,0 +1,44 @@
+#infoUsuario{
+    width: 80%;
+    background-color: white;
+    border-radius: 5px;
+
+}
+h2{
+    width: 100%;
+    border-bottom: 1px solid grey;
+    margin-bottom: 10px;
+}
+.formDato{
+
+}
+.formDato{
+    display: flex;
+}
+.save{
+    color: rgb(145, 145, 145);
+    cursor: no-drop;
+}
+
+.save.active{
+    color: rgb(28, 107, 205);
+    cursor: pointer;
+}
+
+#contenedor_Contra, #contenedor_url_imagen{
+    border-bottom: 2px solid grey;
+    margin: 2px 5px;
+}
+#contenedor_Contra i, #contenedor_url_imagen i{
+    color: grey;
+}
+#contenedor_Contra input, #url_imagen{
+    border: 0;
+    outline: none;
+
+}
+.save{
+    background-color: transparent;
+    border: none;
+    transform: scale(1.2);
+}

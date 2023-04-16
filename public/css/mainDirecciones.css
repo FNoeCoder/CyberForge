@@ -1,0 +1,76 @@
+#guardar-direc{
+    width: 80%;
+    background-color: white;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; */
+}
+#guardar-direc h2{
+    width: 100%;
+    border-bottom: solid 1px grey;
+    margin-bottom: 10px;
+}
+#guardar-direc label{
+    width: 100px;
+}
+#guardar-direc input{
+    width: 100px;
+}
+/* #guardar-direc button{
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+} */
+#direcciones{
+    width: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+#direcciones h2{
+    width: 100%;
+    border-bottom: solid 1px grey;
+    margin-bottom: 10px;
+
+
+}
+.direccion{
+    width: 200px;
+    height: 185px;
+    background-color: rgb(236, 236, 236);
+    margin: 2px;
+    padding: 2px;
+}
+.direccion p{
+    width: 100%;
+    margin: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#add-del-direc{
+    width: 100%; 
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+#eliminar, #editar{
+    width: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 2px 5px;
+    background-color: rgba(240, 248, 255, 0);
+}
+#eliminar{
+    color: rgb(212, 109, 109);
+}
+#editar{
+    color: rgb(59, 134, 219);
+}   
+
+

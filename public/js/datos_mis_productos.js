@@ -1,0 +1,1 @@
+botonEditar = document.getElementById("editar")

@@ -11,30 +11,37 @@ app.use(session({
 
 }))
 
+const routerSesion = require("./routes/sesion")
+const routerCarrito = require("./routes/carrito")
+const routerPerfil = require("./routes/perfil")
+const routerProductos = require("./routes/mis_productos")
+
+
 app.use(express.text())
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(routerSesion)
+app.use(routerCarrito)
+app.use(routerPerfil)
+app.use(routerProductos)
+
 
 const controlladorTienda = require("./controllers/tienda");
 const controlladorError = require("./controllers/error");
 const controlladorBusqueda = require("./controllers/busqueda")
-const controlladorSesion = require("./controllers/sesion")
 const controlladorProducto = require("./controllers/producto")
+
 
 app.get("/", controlladorTienda.getIndex);
 app.get("/tienda", controlladorTienda.getIndex);
 
-app.get("/iniciar-sesion",controlladorSesion.getIniciarSesion )
-app.post("/iniciar-sesion", controlladorSesion.postIniciarSesion)
 
 
-app.get("/crear-cuenta", controlladorSesion.getCrearCuenta)
-app.post("/crear-cuenta", controlladorSesion.postCrearCuenta)
 
-app.get("/perfil", controlladorTienda.getPerfil);
-app.get("/carrito", controlladorTienda.getCariito);
+
+
 
 app.get("/producto", controlladorTienda.getProducto);//? falta de view
 app.get("/editar_producto", controlladorTienda.getEditarProducto); //? falta de view
@@ -55,4 +62,4 @@ app.use(express.static("public")) //* Si no encuentra un archivo lo busca en la 
 app.use(controlladorError.getEror404); //* Cuando no se encuentre una ruta inexistenete
 
 
-app.listen(3000, "0.0.0.0");
+app.listen(3000);
