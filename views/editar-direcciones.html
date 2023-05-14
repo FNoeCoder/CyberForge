@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/body.css">
     <link rel="stylesheet" href="/css/barra_arriba.css">
-    <link rel="stylesheet" href="/css/main.css">
   <title>Titulo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
   <!-- hasta aquí va head.ejs -->
@@ -43,20 +42,37 @@
     <!-- nav.ejs -->
 
     <main>
-        <div class="product-container">
-            <div class="contenedor_img">
-                <img src="/img/ram.webp" class="img_producto">
-            </div>
-            <p class="precio">$ <strong>221.00</strong> </p>
-            <p class="nombre_produc">Nombre del productofasfdafaeafea</p>
-            <p class="usuario_producto">Vendedor fasfa</p>
-            <div class="botones">
-                <form action="/producto/link_producto" class="ver" method="get"><button><i class="fa-solid fa-eye"></i>VER</button></form>
-                <form class="add_carrito" action="/add_carrito" method="post"><button type="submit" name="boton" value="idproducto"><i class="fa-solid fa-cart-plus"></i></button></form>                
-            </div>
+        <form action="/editar-direccion">
+            <label for="estado">Estado:</label>
+            <input type="text" name="estado" disabled class="inputs">
 
-        </div>          
-             
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" name="ciudad" disabled class="inputs">
+
+            <label for="cp">Código Postal:</label>
+            <input type="number" min="5" max="5" name="cp" disabled class="inputs">
+
+            <label for="calle">calle</label>
+            <input type="text" name="calle" disabled class="inputs">
+
+            <label for="n_exterior">NO Exterior:</label>
+            <input type="text" name="n_exterior" disabled class="inputs">
+
+            <label for="n_interior">NO interior:</label>
+            <input type="text" name="n_interior" disabled class="inputs">
+
+            <label for="telefono">Telefono</label>
+            <input type="number" min="10" max="10" name="telefono" disabled class="inputs">
+
+            <label for="quien_recibe">¿Quién recibe?</label>
+            <input type="text" name="text" disabled class="inputs">
+
+            <button name="accion" value="eliminar">ELIMINAR</button>
+            <button type="button" id="editar" class="editar" value="editar">EDITAR</button>
+            <button name="accion" id="guardar" value="guardar" disabled>GUARDAR</button>
+        </form>
+        <button><a href="">AGREGAR NUEVA DIRECCIÓN</a></button>
+
     </main>
 
 
@@ -67,8 +83,39 @@
 
 <footer></footer>
 </body>
-<script src="/js/img_produc.js"></script>
+<script>
+    const editar = document.getElementById("editar")
+    const guardar = document.getElementById("guardar")
+    const inputs = document.getElementsByClassName("inputs")
+
+    editar.addEventListener("click", ()=>{
+
+        
+        if (editar.value == "editar"){
+            guardar.disabled = false;
+
+            editar.innerText = "CANCELAR"
+            editar.classList = "cancelar"
+            editar.value = "cancelar"
+            Array.from(inputs).forEach((elem, i) => {
+                elem.disabled = false
+            });
+        }
+        else if (editar.value == "cancelar"){
+            guardar.disabled = true;
+
+            editar.innerText = "EDITAR"
+            editar.classList = "editar"
+            editar.value = "editar"
+            Array.from(inputs).forEach((elem, i) => {
+                elem.disabled = true
+            });
+        }
+    })
+</script>
 <script src="/js/menu.js"></script>
+<script src="/js/direcciones.js"></script>
+
 </html>
 <!-- footer -->
 

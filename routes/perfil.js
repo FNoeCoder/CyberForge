@@ -3,8 +3,8 @@ const router = express.Router()
 
 const controlladorPerfil = require("../controllers/perfil")
 
-router.get("/perfil", controlladorPerfil.gerPerfil);
+router.get("/perfil", controlladorPerfil.getPerfil);
 
-router.post("/actualizar-contra", controlladorPerfil.postActualizarContra)
-router.post("/actualizar-img", controlladorPerfil.postActualizarIMG)
+router.post("/editar-usuario", controlladorPerfil.postActualizarPerfil)
+
 module.exports = router;

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CREAR CUENTA</title>
-    <link rel="stylesheet" href="/sesion.css">
+    <link rel="stylesheet" href="/CSS/sesion.css">
 </head>
 <body>
     <form action="/crear-cuenta" method="post">
@@ -34,10 +34,6 @@
             <input type="password" name="confirmarcontra" required placeholder="Confirmar Contraseña" id="contra2" />
         </div>
 
-        <!-- <div class="form-group">
-            <label for="urlimagen">URL Imagen</label>
-            <input type="text" name="urlimagen"/>
-        </div> -->
 
         <p id="advertencia">
             <% if (aviso){%>
@@ -49,5 +45,5 @@
         <p id="anuncio">Ya tienes una cuenta. <a href="/iniciar-sesion"> Inicia sesión</a>.</p>
     </form>
 </body>
-<script src="/verificar.js"></script>
+<script src="/js/verificar.js"></script>
 </html>

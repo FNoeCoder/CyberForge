@@ -1,0 +1,37 @@
+<%- include("./plantillas/head.ejs") %>
+    <link rel="stylesheet" href="/css/main.css">
+<body>
+    <%- include("./plantillas/nav.ejs") %>
+    <%- include("./plantillas/barra_superior.ejs") %>
+    <main>
+
+        
+        <% resultados.forEach(element =>{%>
+            <form action="/add-carr-producto">
+                <div class="contenedor_img">
+                    <img src="<%= element.img_url %>" class="img_producto">
+                </div>
+                <p class="precio">$ <strong><%= element.precio %></strong> </p>
+                <p class="nombre_produc"><%= element.nombre %></p>
+                <p class="usuario_producto"><%= element.Usuarios_idUsuarios %></p>
+                <input type="hidden" name="idPro" value="<%= element.idProductos %>">
+                    <button type="button"><a href="">VER</a></button>
+                    <button type="submit" name="boton" value="idproducto"><i class="fa-solid fa-cart-plus"></i></button>          
+            </form>
+        <% })%>
+
+     
+             
+    </main>
+
+
+
+<footer></footer>
+</body>
+<script src="/js/img_produc.js"></script>
+<%- include("./plantillas/scripts_generales.ejs") %>
+</html>
+<!-- footer -->
+
+
+

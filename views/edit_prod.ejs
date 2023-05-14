@@ -1,0 +1,45 @@
+<%- include("./plantillas/head.ejs") %>
+    <link rel="stylesheet" href="/css/mainMisProductos.css">
+
+<body>
+    <%- include("./plantillas/nav.ejs") %>
+    <%- include("./plantillas/barra_superior.ejs") %>
+    <main>
+        <form action="/editar-produc" method="post">
+            <label for="nombre" >Nombre: </label>
+            <input type="text" name="nombre"  value="<%= datosProducto.nombre %>">
+
+            <label for="descripcion" >Descripcion: </label>
+            <input type="text" name="descripcion"   value="<%= datosProducto.descripcion %>">
+
+            <label for="precio" >Precio: </label>
+            <input type="text" name="precio"   value="<%= datosProducto.precio %>">
+
+            <label for="imagen" >Imagen: </label>
+            <input type="text" name="imagen"   value="<%= datosProducto.img_url %>">
+
+            <label for="categorias" >Categorias: </label>
+            <input type="text" name="categorias" placeholder=""   value="<%= datosProducto.Categorias %>"> 
+
+            <label for="stock" >Stock: </label>
+            <input type="number" name="stock"   value="<%= datosProducto.stock %>">
+
+            <button   name="accion" >GUARDAR</button>
+            <input type="hidden" name="idProduc" value="<%= datosProducto.idProductos %>">
+        </form>
+
+
+
+    </main>
+
+
+
+<footer></footer>
+</body>
+
+<%- include("./plantillas/scripts_generales.ejs") %>
+</html>
+<!-- footer -->
+
+
+

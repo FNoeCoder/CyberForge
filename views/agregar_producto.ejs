@@ -1,0 +1,46 @@
+<%- include("./plantillas/head.ejs") %>
+    <link rel="stylesheet" href="/css/mainMisProductos.css">
+
+<body>
+    <%- include("./plantillas/nav.ejs") %>
+    <%- include("./plantillas/barra_superior.ejs") %>
+    <main>
+
+        <form action="/agregar_producto" method="post">
+            <label for="nombre" >Nombre: </label>
+            <input type="text" name="nombre">
+
+            <label for="descripcion" >Descripcion: </label>
+            <input type="text" name="descripcion">
+
+            <label for="precio" >Precio: </label>
+            <input type="text" name="precio">
+
+            <label for="imagen" >Imagen: </label>
+            <input type="text" name="Imagen" placeholder="URL">
+
+            <label for="categorias" >Categorias: </label>
+            <input type="text" name="categorias" placeholder="categoria1 categoria2 categoria3">
+
+            <label for="stock" >Stock: </label>
+            <input type="number" name="stock">
+
+            <button name="accion" id="guardar" >GUARDAR</button>
+        </form>
+
+
+    </main>
+
+
+
+<script src="/js/img_usuario.js"></script>
+
+
+<footer></footer>
+</body>
+<%- include("./plantillas/scripts_generales.ejs") %>
+</html>
+<!-- footer -->
+
+
+

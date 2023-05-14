@@ -1,0 +1,82 @@
+<!--  -->
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/body.css">
+    <link rel="stylesheet" href="/css/barra_arriba.css">
+  <title>Titulo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+  <!-- hasta aquí va head.ejs -->
+
+<body>
+    <nav id="menu">
+        <i class="fa-solid fa-bars" id="menu_ico"></i>
+        <ul>
+            <div id="contenedor_img_usuario">
+    
+                <img id="img_usuario" src="/img/perfil-de-usuario.webp" alt="">
+    
+    
+                    
+            </div>                
+            <li><a href="/perfil"><i class="fa-solid fa-user"></i>PERFIL</a></li>
+            <li><a href="/carrito"><i class="fa-solid fa-cart-shopping"></i>CARRITO</a></li>
+            <li><a href="/compras"><i class="fa-solid fa-bag-shopping"></i>COMPRAS</a></li>
+            <li><a href="/mis-productos"><i class="fa-brands fa-elementor"></i>MIS PRODUCTOS</a></li>
+            <li><a href="/direcciones"><i class="fa-solid fa-location-dot"></i>DIRECCIONES</a></li>
+            <li><a href="/tarjetas"><i class="fa-solid fa-address-card"></i>TARJETAS</a></li>
+            <li><a href="/notificaciones"><i class="fa-solid fa-bell"></i>NOTIFICACIONES</a></li>
+            <li><a href="/admin-usuarios"><i class="fa-solid fa-users"></i> ADMINISTRAR USUARIOS </a></li>
+            <li><a href="/cerrar-sesion"><i class="fa-solid fa-right-from-bracket"></i>CERRAR SESIÓN</a></li>
+    
+        </ul>
+    </nav>
+        <div id="barra_arriba">
+          <a href="/" id="cyberforge">CyberForge <img src="img/logo.png" alt="" id="logo"></a> 
+          <form action="/buscar" id="buscar" method="post">
+              <input type="text" placeholder="Buscar" name="busqueda">
+              <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+
+    <main>
+        <div class="contenedor_compras">
+            <div class="contenedor_img"><img src="" alt=""></div>
+            <input type="text" placeholder="nombre" disabled>
+            <input type="text" placeholder="cantidad" disabled>
+            <input type="text" placeholder="precio" disabled>
+            <input type="text" placeholder="total" disabled>            
+        </div>
+
+        <div class="contenedor_compras">
+            <div class="contenedor_img"><img src="" alt=""></div>
+            <input type="text" placeholder="nombre" disabled>
+            <input type="text" placeholder="cantidad" disabled>
+            <input type="text" placeholder="precio" disabled>
+            <input type="text" placeholder="total" disabled>            
+        </div>
+
+        
+
+    </main>
+
+
+<!--  -->
+<!--  -->
+<script src="/js/img_usuario.js"></script>
+<!-- script_generales -->
+
+<footer></footer>
+</body>
+
+<script src="/js/img_produc_carrito.js"></script>
+<script src="/js/menu.js"></script>
+</html>
+<!-- footer -->
+
+
+

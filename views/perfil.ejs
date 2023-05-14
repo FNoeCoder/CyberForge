@@ -1,58 +1,38 @@
-<!--  -->
-<!DOCTYPE html>
-<html lang="sp">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="/css/body.css">
-    <link rel="stylesheet" href="/css/barra_arriba.css">
+<%- include("./plantillas/head.ejs") %>
     <link rel="stylesheet" href="/css/mainPerfil.css">
-  <title>Titulo</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
-  <!-- hasta aquí va head.ejs -->
 
 <body>
     <%- include("./plantillas/nav.ejs") %>
     <%- include("./plantillas/barra_superior.ejs") %>
-
     <main>
-        <div id="infoUsuario">
-            <h2>PERFIL</h2>
-            <p>Usuario:<%= datos.usuario %></p>
-            <p>Nombre: <%= datos.nombre%></p>
-            <p>Correo: <%= datos.correo %></p>
-            <form action="/actualizar-contra" method="post" class="formDato">
-                <label for="contra">Contra:</label>
-                <div id="contenedor_Contra">
-                    <input class="dato" type="password" id="contra" name="contra" required maxlength="45" minlength="8" value="<%= datos.contra %>">
-                    <i id="ojo" class="fa-solid fa-eye"></i>
-                </div>
+        <form action="/editar-usuario" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" disabled name="nombre" value="<%= datosPerfil.nombre %>">
 
-                <button class="save" disabled><i class="fa-solid fa-floppy-disk"></i></button>
-            </form>
-            <form action="/actualizar-img" method="post" class="formDato">
-                <label for="url_imagen">URL IMG:</label>
-                <div id="contenedor_url_imagen">
-                    <input class="dato" type="text" id="url_imagen" name="url_imagen" maxlength="600" value="<%= datos.url_imagen %>">
-                </div>
-                <button class="save" disabled><i class="fa-solid fa-floppy-disk"></i></button>
-            </form>
-        </div>
+            <label for="usuario">Usuario:</label>
+            <input type="text" disabled name="usuario" value="<%= datos.usuario %>">
+
+            <label for="correo">Correo:</label>
+            <input type="email" disabled name="correo" value="<%= datosPerfil.correo %>">
+
+            <label for="contra">Contraseña:</label>
+            <div>
+                <input class="dato" type="password" id="contra" name="contra" required maxlength="45" minlength="8" value="<%= datosPerfil.contra %>">
+                <i id="ojo" class="fa-solid fa-eye"></i>            
+            </div>
+            
+            <label for="url_img">URL IMAGEN:</label>
+            <input class="dato" type="text" id="url_imagen" name="url_img" maxlength="600" value="<%= datosPerfil.url_img %>">
+
+            <button>GUARDAR</button>
+        </form>
+
     </main>
-
-
-<!--  -->
-<!--  -->
-<script src="/js/img_usuario.js"></script>
-<!-- script_generales -->
 
 <footer></footer>
 </body>
-<script src="/js/menu.js"></script>
+    <%- include("./plantillas/scripts_generales.ejs") %>
 <script src="/js/perfil.js"></script>
-
 </html>
 <!-- footer -->
 

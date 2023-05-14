@@ -1,80 +1,63 @@
-<!--  -->
-<!DOCTYPE html>
-<html lang="sp">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="/css/body.css">
-    <link rel="stylesheet" href="/css/barra_arriba.css">
+<%- include("./plantillas/head.ejs") %>
     <link rel="stylesheet" href="/css/mainCarrito.css">
-  <title>Titulo</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
-  <!-- hasta aquí va head.ejs -->
 
 <body>
     <%- include("./plantillas/nav.ejs") %>
     <%- include("./plantillas/barra_superior.ejs") %>
-
+    <style>
+        .formcantidad{
+            border-bottom: 2px solid rgb(80, 80, 80);
+        }
+    </style>
     <main>
-
-        <div id="carrito">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Imagen</th>
-                        <th id="nproduc">Producto</th>
-                        <th>Cantidad</th>
-                        <th>Precio</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="eleemnto">
-                        <td class="tdimgCarContainer"> <div class="imgCarContainer"><img class="img_carrito" src="/img/340127081_1016272559338066_714815053397961802_n.jpg"></div> </td>
-                        <td>Nombrfffffffffe</td>
-                        <td>
-                            <form action="/cantidad-producto">
-                                <input type="hidden" name="idP" value="123">
-                                <input type="number" name="cantidad_producto1" value="1" min="1" max="10">
-                                <button type="submit" name="accion" value="save"><i class="fa-solid fa-floppy-disk"></i></button>                           
-                                <button type="submit" name="accion" value="delete"><i class="fa-solid fa-trash"></i></button>                           
-                            </form>
-                        </td>
-                        <td>$10.00</td>
-                        <td>$10.00</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td >Total:</td>
-                        <td>$25.00</td>
-                    </tr>
-                </tfoot>
-            </table>
-            <form action="/comprar-carrito" id="comprar-carrito">
-                <button id="boton-comprar-carrito">COMPRAR</button>
-            </form>
+        <form action="/edit-cantidad-producto" class="formcantidad">
+            <input type="text" name="nombre" placeholder="nombre" disabled>
+            <div class="cantidad">
+                <button name="boton_cant" value="-" id="b-"><i class="fa-solid fa-minus"></i></button>
+                <input type="text" name="cant" id="cant" value="10">
+                <button name="boton_cant" value="+" id="b+"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <input type="text" placeholder="precio" disabled>
+            <input type="text" placeholder="total" disabled>
+        </form>
+        <div>
+            <label for="total">TOTAL: </label>
+            <input type="text" name="total" id="" placeholder="total">
         </div>
+        <form action="/comprar-carrito" id="comprar-carrito">
+            <button id="boton-comprar-carrito">COMPRAR</button>
+        </form>
 
 
 
     </main>
 
 
-<!--  -->
-<!--  -->
-<script src="/js/img_usuario.js"></script>
-<!-- script_generales -->
-
 <footer></footer>
 </body>
+<script>
+    const bCant = document.getElementById("cant")
+    const bmenos = document.getElementById("b-")
+    const bmas = document.getElementById("b+")
+    let valorInicial = bCant.value
+    bCant.addEventListener("input", ()=>{
+        
+        if (/^\+?\d+$/.test(valorInicial) == false){
+            valorInicial = bCant.value
+        }
+    })
+
+    bmenos.addEventListener("click", ()=>{
+        bCant.value = parseInt(bCant.value) - 1
+    })
+    bmas.addEventListener("click", ()=>{
+        bCant.value = parseInt(bCant.value) + 1
+    })
+
+ 
+</script>
 <script src="/js/img_produc_carrito.js"></script>
-<script src="/js/menu.js"></script>
+<%- include("./plantillas/scripts_generales.ejs") %>
 </html>
 <!-- footer -->
 

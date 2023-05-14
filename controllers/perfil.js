@@ -1,40 +1,39 @@
-const modelUsuario = require("../models/usuario")
+const modelUsuario = require("../models/perfil")
 
-exports.gerPerfil = (req, res) =>{
+exports.getPerfil = (req, res) =>{
+    // si no se ha obtenido un usuairo nos redirije a iniciar seison
     if (!req.session.usuario){
         res.redirect("/iniciar-sesion")
-    }
-    res.render("perfil",{Titulo_Pestaña: "Perfil", 
-    datos:{
-        idUser: req.session ? req.session.idUser : "null",
-        nombre: req.session ? req.session.nombre : "null",
-        usuario: req.session ? req.session.usuario : "null",
-        correo: req.session ? req.session.email : "null",
-        contra: req.session ? req.session.contra : "null",
-        url_imagen: req.session ? req.session.url_imagen : "null",
-        tipo_usuario: req.session ? req.session.tipo_usuario : "null",}
-})
-}
+    }else{
+        // Si hay una sesion entconees se obtienen los datos de del usuario para mostrarlos en /perfil
+        modelUsuario.getContraIMG(req.session.idUser).then( resultado =>{
+            console.log(resultado[0][0]);
+            res.render("./perfil",{titulo: "PERFIL", 
+                datos:{
+                    idUser: req.session.idUser || null,
+                    usuario: req.session.usuario || null,
+                    url_imagen: req.session.url_imagen || null,
+                    tipo_usuario: req.session.tipo_usuario || null},
+                datosPerfil: {contra: resultado[0][0].contra,
+                            url_img: resultado[0][0].url_imagen,
+                            nombre: resultado[0][0].nombre,
+                            correo: resultado[0][0].email
+                        }
+            })
+        })
+        .catch(err => res.redirect("/iniciar-sesion"))
 
-exports.postActualizarContra = (req, res) =>{
+}}
+
+exports.postActualizarPerfil = (req, res) =>{
+    // obtienen los datos nuevos de la contraseña y la imagen del usuario para poder actualizarlos
     let contraActualizada = req.body.contra
+    let imgActualizada = req.body.url_img
     let idUser = req.session.idUser
-    modelUsuario.actualizarContra(idUser, contraActualizada)
+    modelUsuario.actualizarPerfil(idUser, contraActualizada, imgActualizada)
     .then(() =>{ 
-        req.session.contra = contraActualizada
+        req.session.url_imagen = imgActualizada
         res.redirect("/perfil") 
-        
     })
     .catch(()=>{console.log("No se pudo cambiar la contraseña");})
-}
-exports.postActualizarIMG = (req, res) =>{
-    let urlIMG = req.body.url_imagen
-    let idUser = req.session.idUser
-    modelUsuario.actualizarIMG(idUser, urlIMG)
-    .then(() =>{ 
-        req.session.url_imagen = urlIMG
-        res.redirect("/perfil") 
-        
-    })
-    .catch((a)=>{console.log("No se pudo cambiar la contraseña");console.log(a);})
 }

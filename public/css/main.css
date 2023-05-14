@@ -1,7 +1,7 @@
 
 
 
-.product-container{
+main form{
     width: 100%;
     max-width: 250px;
     height: 345px;
@@ -13,7 +13,7 @@
     /* overflow: hidden; */
     transition: 0.2s;
 }
-.product-container:hover{
+form:hover{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
 .precio{

@@ -1,59 +1,39 @@
-<!--  -->
-<!DOCTYPE html>
-<html lang="sp">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="/css/body.css">
-    <link rel="stylesheet" href="/css/barra_arriba.css">
+<%- include("./plantillas/head.ejs") %>
     <link rel="stylesheet" href="/css/mainMisProductos.css">
-  <title>Titulo</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
-  <!-- hasta aquí va head.ejs -->
 
 <body>
     <%- include("./plantillas/nav.ejs") %>
     <%- include("./plantillas/barra_superior.ejs") %>
-
     <main>
 
-        <h1>Agregar Producto</h1>
-        <form action="agregar_producto.php" method="POST" id="addProduc">
-            <label>Nombre:</label>
-            <input type="text" name="nombre" required class="input"><br>
-            <label>Descripción:</label>
-            <textarea name="descripcion" required></textarea><br>
-            <label>Precio:</label>
-            <input type="number" name="precio" step="0.01" min="0" required><br>
-            <label>Imagen:</label>
-            <input type="url" name="img_url" required><br>
-            <label>Categorías:</label>
-            <input type="text" name="categorias" required><br>
-            <label>Stock:</label>
-            <input type="number" name="stock" min="1" required><br>
-            <div id="containerBotones">
-                <button id="guardar" name="accion" value="guardar">GUARDAR</button>
-                <button id="cancelar">CANCELAR</button>
-                <button id="actualizar" name="accion" value="actualizar">ACTUALIZAR</button>
-            </div>
-        </form>
-        <div id="productos">
-            <section class="producto">
-                <p id="Nombre">Nombre: <p class="datos_direc_guar">Guanajuato</p> </p>
-                <p id="Descripción">Descripción: <p class="datos_direc_guar">Cueramaro</p></p>
-                <p id="Precio">Precio:<p class="datos_direc_guar">45656</p></p>
-                <p id="Imagen">Imagen:<p class="datos_direc_guar">fgsdtsrtr</p></p>
-                <p id="Categorías">Categorías:<p class="datos_direc_guar">424</p></p>
-                <p id="Stock">Stock:<p class="datos_direc_guar">43243</p></p>
-                <form action="/eliminar-produc" method="post" id="add-del-direc">
-                    <input type="hidden" value="iddirec">
-                    <button id="eliminar"><i class="fa-solid fa-trash-can"></i></button>
-                    <button id="editar" type="button"><i class="fa-solid fa-pen-to-square"></i></button>
-                </form>
-            </section>
-        </div>
+        <% productos.forEach(element=>{ %>
+            <form action="/producto" method="post">
+                <label for="nombre" >Nombre: </label>
+                <input type="text" name="nombre" disabled value="<%= element.nombre %>">
+    
+                <label for="descripcion" >Descripcion: </label>
+                <input type="text" name="descripcion"  disabled value="<%= element.descripcion %>">
+    
+                <label for="precio" >Precio: </label>
+                <input type="text" name="precio"  disabled value="<%= element.precio %>">
+    
+                <label for="imagen" >Imagen: </label>
+                <input type="text" name="imagen"  disabled value="<%= element.img_url %>">
+    
+                <label for="categorias" >Categorias: </label>
+                <input type="text" name="categorias" placeholder=""  disabled value="<%= element.Categorias %>"> 
+    
+                <label for="stock" >Stock: </label>
+                <input type="number" name="stock"  disabled value="<%= element.stock %>">
+    
+                <button name="accion" value="eliminar">ELIMINAR</button>
+                <button  id="editar" name="accion" value="editar">EDITAR</button>
+                <input type="hidden" name="idProduc" value="<%= element.idProductos %>">
+            </form>
+            <% }) %>
+
+        <button><a href="/agregar-producto">AGREGAR PRODUCTO NUEVO</a></button>
+
     </main>
 
 
@@ -64,8 +44,7 @@
 
 <footer></footer>
 </body>
-<script src="/js/datos_mis_productos.js"></script>
-<script src="/js/menu.js"></script>
+<%- include("./plantillas/scripts_generales.ejs") %>
 </html>
 <!-- footer -->
 

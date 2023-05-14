@@ -20,6 +20,12 @@ insert into Usuarios values(DEFAULT, 'Noe3xd', 'Noe prueba XD', 'noexd@gmail.com
 insert into `Usuarios` values(null,"Noe3333", "Francisco Noé Arriaga Hernández","franscoe@gmail.com","33333333", "https://i.pinimg.com/236x/81/01/a4/8101a432ae9f1f92cb7aa0d87cec54de.jpg","admin");
 select * from Usuarios;
 
+
+#normal
+#admin
+#superadmin
+
+
 select * from Usuarios where usuario = "nOe3333";
 ##delete from Usuarios where usuario = "Noe3333";
 
@@ -42,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `Productos` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+select * from productos;
 
 
 #---------------------------------------------------------------------------------------------
@@ -53,17 +60,7 @@ CREATE TABLE IF NOT EXISTS `Carrito` (
   UNIQUE INDEX `IdCarrito_UNIQUE` (`IdCarrito` ASC))
 ENGINE = InnoDB;
 #---------------------------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Compras` (
-  `IdCompra` INT NOT NULL AUTO_INCREMENT,
-  `estado_del_pedido` VARCHAR(45) NOT NULL,
-  `n_producto` INT UNSIGNED NOT NULL,
-  `fecha_hora_compra` DATETIME NOT NULL,
-  `n_pedido` INT UNSIGNED NOT NULL,
-  `emrpesa_emvio` VARCHAR(45) NOT NULL,
-  `fecha_entrega` DATE NOT NULL,
-  PRIMARY KEY (`IdCompra`),
-  UNIQUE INDEX `IdCompra_UNIQUE` (`IdCompra` ASC) )
-ENGINE = InnoDB;
+
 #---------------------------------------------------------------------------------------------
 
 #---------------------------------------------------------------------------------------------
@@ -104,25 +101,7 @@ CREATE TABLE IF NOT EXISTS `Tarjeta` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 #---------------------------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Peticiones` (
-  `idPeticiones` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(100) NOT NULL,
-  `descripcion` VARCHAR(400) NOT NULL,
-  `precio` FLOAT UNSIGNED NOT NULL,
-  `img_url` VARCHAR(400) NOT NULL,
-  `catecorias` VARCHAR(200) NOT NULL,
-  `stock` INT NOT NULL,
-  `estado` VARCHAR(15) NOT NULL,
-  `Usuarios_idUsuarios` INT NOT NULL,
-  PRIMARY KEY (`idPeticiones`, `Usuarios_idUsuarios`),
-  INDEX `fk_Peticiones_Usuarios1_idx` (`Usuarios_idUsuarios` ASC) ,
-  UNIQUE INDEX `idPeticiones_UNIQUE` (`idPeticiones` ASC) ,
-  CONSTRAINT `fk_Peticiones_Usuarios1`
-    FOREIGN KEY (`Usuarios_idUsuarios`)
-    REFERENCES `Usuarios` (`idUsuarios`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 #---------------------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Usuarios_Carrito` (
   `Usuarios_idUsuarios` INT NOT NULL,
@@ -142,23 +121,7 @@ CREATE TABLE IF NOT EXISTS `Usuarios_Carrito` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 #---------------------------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Usuarios_Compras` (
-  `Usuarios_idUsuarios` INT NOT NULL,
-  `Compras_IdCompra` INT NOT NULL,
-  PRIMARY KEY (`Usuarios_idUsuarios`, `Compras_IdCompra`),
-  INDEX `fk_Usuarios_has_Compras_Compras1_idx` (`Compras_IdCompra` ASC) ,
-  INDEX `fk_Usuarios_has_Compras_Usuarios1_idx` (`Usuarios_idUsuarios` ASC) ,
-  CONSTRAINT `fk_Usuarios_has_Compras_Usuarios1`
-    FOREIGN KEY (`Usuarios_idUsuarios`)
-    REFERENCES `Usuarios` (`idUsuarios`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Usuarios_has_Compras_Compras1`
-    FOREIGN KEY (`Compras_IdCompra`)
-    REFERENCES `Compras` (`IdCompra`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 #---------------------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Opiniones` (
   `idOpiniones` INT NOT NULL AUTO_INCREMENT,
@@ -201,23 +164,7 @@ CREATE TABLE IF NOT EXISTS `Carrito_Productos` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 #---------------------------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Compras_Productos` (
-  `Compras_IdCompra` INT NOT NULL,
-  `Productos_idProductos` INT NOT NULL,
-  PRIMARY KEY (`Compras_IdCompra`, `Productos_idProductos`),
-  INDEX `fk_Compras_has_Productos_Productos1_idx` (`Productos_idProductos` ASC) ,
-  INDEX `fk_Compras_has_Productos_Compras1_idx` (`Compras_IdCompra` ASC) ,
-  CONSTRAINT `fk_Compras_has_Productos_Compras1`
-    FOREIGN KEY (`Compras_IdCompra`)
-    REFERENCES `Compras` (`IdCompra`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Compras_has_Productos_Productos1`
-    FOREIGN KEY (`Productos_idProductos`)
-    REFERENCES `Productos` (`idProductos`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 #---------------------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Notificaciones` (
   `idNotif` INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -233,7 +180,27 @@ CREATE TABLE IF NOT EXISTS `Notificaciones` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
+CREATE TABLE IF NOT EXISTS `Compra` (
+  `IdCompra` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NOT NULL,
+  `descripcion` VARCHAR(400) NOT NULL,
+  `precio` FLOAT NOT NULL,
+  `n_producto` INT UNSIGNED NOT NULL,
+  `img_url` VARCHAR(600) NOT NULL,
+  `estado_del_pedido` VARCHAR(45) NOT NULL,
+  `emrpesa_emvio` VARCHAR(45) NOT NULL,
+  `fecha_compra` DATETIME NOT NULL,
+  `fecha_entrega` DATE NOT NULL,
+  `Usuarios_idUsuarios` INT NOT NULL,
+  PRIMARY KEY (`IdCompra`, `Usuarios_idUsuarios`),
+  UNIQUE INDEX `IdCompra_UNIQUE` (`IdCompra` ASC) ,
+  INDEX `fk_Compra_Usuarios1_idx` (`Usuarios_idUsuarios` ASC) ,
+  CONSTRAINT `fk_Compra_Usuarios1`
+    FOREIGN KEY (`Usuarios_idUsuarios`)
+    REFERENCES `Usuarios` (`idUsuarios`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 

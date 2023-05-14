@@ -17,8 +17,10 @@
             <li><a href="/direcciones"><i class="fa-solid fa-location-dot"></i>DIRECCIONES</a></li>
             <li><a href="/tarjetas"><i class="fa-solid fa-address-card"></i>TARJETAS</a></li>
             <li><a href="/notificaciones"><i class="fa-solid fa-bell"></i>NOTIFICACIONES</a></li>
-            <li><a href="/solicitudes"><i class="fa-solid fa-hammer"></i> ADMINISTRAR SOLICITUDES </a></li>
-            <li><a href="/admin-usuarios"><i class="fa-solid fa-users"></i> ADMINISTRAR USUARIOS </a></li>
+            <% if (!datos.usuario==="normal"){%>
+                            <li><a href="/admin-usuarios"><i class="fa-solid fa-users"></i> ADMINISTRAR USUARIOS </a></li>
+
+            <%}%>
             <li><a href="/cerrar-sesion"><i class="fa-solid fa-right-from-bracket"></i>CERRAR SESIÓN</a></li>
         <%} else{%>
             <li><a href="/iniciar-sesion">INICIA SESIÓN</a></li>
